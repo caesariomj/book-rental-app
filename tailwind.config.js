@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        'cerulean-blue': {
+        'primary': {
           '50': '#ecf9ff',
           '100': '#d4f0ff',
           '200': '#b2e7ff',
@@ -20,7 +20,7 @@ export default {
           '900': '#0848a0',
           '950': '#0a2c61',
         },
-        'alabaster': {
+        'light': {
           '50': '#f8f9fa',
           '100': '#eceff2',
           '200': '#d6dce1',
@@ -33,7 +33,19 @@ export default {
           '900': '#353d45',
           '950': '#23292e',
         },
-        'dark': '#001f3f',          
+        'dark': {
+          '50': '#e9fbff',
+          '100': '#cef5ff',
+          '200': '#a7efff',
+          '300': '#6beaff',
+          '400': '#26d8ff',
+          '500': '#00b4ff',
+          '600': '#008aff',
+          '700': '#006fff',
+          '800': '#005fe6',
+          '900': '#0055b3',
+          DEFAULT: '#001f3f',
+      },      
       }
     },
   },

@@ -1,7 +1,14 @@
-export const Button = ({ href, type, bgColor, textColor, borderColor, children  }) => {
-    const baseStyle = "inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center rounded-lg hover-animation";
+export const Button = ({ href, type, variant, children  }) => {
+    const baseStyle = "inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center rounded-lg animate-hover";
+    let style = "";
 
-    const style = `${baseStyle} text-${textColor ? textColor : 'dark'} ${bgColor ? `bg-${bgColor}-800 hover:bg-${bgColor}-900 focus:ring-4 focus:ring-${bgColor}-300` : 'light-50'} ${borderColor ? `border border-${borderColor} hover:bg-light-100` : ''}`
+    if (variant === "primary") {
+        style = `${baseStyle} text-white bg-primary-800 hover:bg-primary-900 focus:ring-4 focus:ring-primary-300 border border-transparent`;
+    } else if (variant === "bordered") {
+        style = `${baseStyle} text-dark bg-light-50 border border-dark hover:bg-light-100`;
+    } else {
+        style = baseStyle;
+    }
 
     if (href) {
         return (

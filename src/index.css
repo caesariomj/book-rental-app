@@ -2,19 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+    @apply scroll-smooth;
+}
+
 body {
     @apply bg-light-50 min-h-screen
 }
 
 @layer components {
-    .hover-animation {
-        transition: all;
-        -webkit-transition: all;
-        -moz-transition: all;
-        -ms-transition: all;
-        -o-transition: all;
-        transition-duration: 150ms;
-        transition-timing-function: ease-in-out;
+    .animate-hover {
+        @apply transition-all ease-in-out duration-300;
     }
 
     .underline-highlight {

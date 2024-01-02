@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export const Button = ({ href, type, variant, children  }) => {
     const baseStyle = "inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center rounded-lg animate-hover";
     let style = "";
@@ -12,9 +14,9 @@ export const Button = ({ href, type, variant, children  }) => {
 
     if (href) {
         return (
-            <a href={href} className={style}>
+            <Link to={href} className={style}>
                 {children}
-            </a>
+            </Link>
         )
     } else {
         return (

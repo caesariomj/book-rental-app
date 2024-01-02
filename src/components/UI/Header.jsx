@@ -48,7 +48,7 @@ export const Header = () => {
                             <a href="#" className="inline-flex h-16 px-4 items-center"><Cart size={22} /></a>
                         </li> */}
                     <li>
-                        <Button href="#" variant="bordered">
+                        <Button href="login" variant="bordered">
                             Login
                         </Button>
                     </li>

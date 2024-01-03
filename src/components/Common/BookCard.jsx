@@ -13,7 +13,7 @@ export const BookCard = ({ slug, coverUrl, title, author, availability, rating  
                 <img
                     src={coverUrl}
                     alt={`${title} Book Cover`}
-                    className="w-auto h-[32rem] object-cover rounded-lg group-hover:brightness-90 animate-hover"
+                    className="h-full w-auto object-cover rounded-lg group-hover:brightness-90 animate-hover"
                 />
                 <div className="absolute top-0 left-0 m-2.5 py-1.5 px-3 z-10 bg-white rounded-md text-sm font-semibold">Popular</div>
                 <div className="invisible opacity-0 group-hover:visible group-hover:opacity-100 animate-hover absolute top-0 right-0 m-2.5 p-1.5 z-10 bg-white rounded-full hover:text-red-600 animate-hover">

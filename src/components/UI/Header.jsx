@@ -8,8 +8,10 @@ import { Button, NavbarDropdown } from "../Common/index";
 import Logo from "../../assets/images/logo.svg"
 
 export const Header = () => {
+    const currentPath = window.location.pathname;
+
     return (
-        <header className="px-4 lg:px-12 py-2">
+        <header className="sticky top-0 z-50 bg-light-50 py-2 px-4 lg:px-12">
             <nav className="flex justify-between items-center text-base text-dark font-medium tracking-tight leading-none">
                 <a href="#" className="inline-flex h-16 items-center font-black text-xl lg:text-2xl">
                     <img src={Logo} width={40} alt="Book Rent Logo" className="mr-4" />
@@ -17,7 +19,7 @@ export const Header = () => {
                 </a>
                 <ul className="hidden lg:flex items-center space-x-6">
                     <li>
-                        <a href="#" className="inline-flex h-16 px-4 items-center">
+                        <a href="#" className={`inline-flex h-16 px-4 items-center ${currentPath === '/' ? 'text-primary-800' : ''}`}>
                             Home
                         </a>
                     </li>

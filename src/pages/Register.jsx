@@ -1,4 +1,4 @@
-import { Button } from "../components/Common/index";
+import { Button, FormInput } from "../components/Common/index";
 import { Link } from "react-router-dom";
 import Logo from "../assets/images/logo.svg";
 import { FaArrowLeftLong as Back } from "react-icons/fa6";
@@ -29,43 +29,13 @@ export const Register = () => {
         </h1>
         <form action="#" className="flex flex-col mb-8">
           <div className="flex flex-col mb-4">
-            <label htmlFor="email" className="text-start font-semibold mb-2">
-              Email<span className="text-red-600 ms-1">*</span>
-            </label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              placeholder="johndoe@email.com"
-              required
-              className="w-full px-5 py-3 mr-3 text-base text-dark font-medium rounded-lg border border-dark/30 animate-hover hover:border-dark focus:ring-4 focus:ring-primary-300 hover-animation"
-            />
+            <FormInput type="email" label="email" name="email" placeholder="johndoe@email.com" />
           </div>
           <div className="flex flex-col mb-2">
-            <label htmlFor="password" className="text-start font-semibold mb-2">
-              Password<span className="text-red-600 ms-1">*</span>
-            </label>
-            <input
-              type="password"
-              name="password"
-              id="password"
-              placeholder="*****"
-              required
-              className="w-full px-5 py-3 mr-3 text-base text-dark font-medium rounded-lg border border-dark/30 animate-hover hover:border-dark focus:ring-4 focus:ring-primary-300 hover-animation"
-            />
+            <FormInput type="password" label="password" name="password" placeholder="********" />
           </div>
           <div className="flex flex-col mb-8">
-            <label htmlFor="retypePassword" className="text-start font-semibold mb-2">
-              Re-type Password<span className="text-red-600 ms-1">*</span>
-            </label>
-            <input
-              type="password"
-              name="retypePassword"
-              id="retypePassword"
-              placeholder="*****"
-              required
-              className="w-full px-5 py-3 mr-3 text-base text-dark font-medium rounded-lg border border-dark/30 animate-hover hover:border-dark focus:ring-4 focus:ring-primary-300 hover-animation"
-            />
+            <FormInput type="password" label="re-type password" name="retypePassword" placeholder="********" />
           </div>
           <Button type="submit" variant="primary">
             Register
@@ -77,7 +47,7 @@ export const Register = () => {
             to="/login"
             className="font-semibold underline animate-hover hover:text-primary-800"
           >
-            Login now
+            Login
           </Link>
         </span>
       </section>

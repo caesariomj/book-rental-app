@@ -1,24 +1,12 @@
-import { Button } from "../components/Common/index";
+import { Button, FormInput } from "../components/Common/index";
 import { Link } from "react-router-dom";
 import Logo from "../assets/images/logo.svg";
 import { FaArrowLeftLong as Back, FaEye as Show, FaEyeSlash as Hide } from "react-icons/fa6";
 import { useState } from "react";
+import { usePasswordToggle } from "../hooks/usePasswordToggle";
 
 export const Login = () => {
-  const [type, setType] = useState("password");
-  const [icon, setIcon] = useState(Show);
-
-  const handlePasswordToggle = () => {
-    if (type === "password") {
-      setType("text")
-      setIcon(Hide)
-    } else if (type === "text") {
-      setType("password")
-      setIcon(Show)
-    } else {
-      return;
-    }
-  }
+  const { showPassword, icon, handleToggle } = usePasswordToggle();
 
   return (
     <main className="min-h-screen flex items-center justify-center">
@@ -45,45 +33,30 @@ export const Login = () => {
         </h1>
         <form action="#" className="flex flex-col mb-8">
           <div className="flex flex-col mb-4">
-            <label htmlFor="email" className="text-start font-semibold mb-2">
-              Email<span className="text-red-600 ms-1">*</span>
-            </label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              placeholder="johndoe@email.com"
-              required
-              className="w-full px-5 py-3 mr-3 text-base text-dark font-medium rounded-lg border border-dark/30 animate-hover hover:border-dark focus:ring-4 focus:ring-primary-300 hover-animation"
-            />
+            <FormInput type="email" label="email" name="email" placeholder="johndoe@email.com" />
           </div>
           <div className="flex flex-col mb-2">
-            <label htmlFor="password" className="text-start font-semibold mb-2">
-              Password<span className="text-red-600 ms-1">*</span>
-            </label>
-            <input
-              type={type}
-              name="password"
-              id="password"
-              placeholder="*****"
-              required
-              className="w-full px-5 py-3 mr-3 text-base text-dark font-medium rounded-lg border border-dark/30 animate-hover hover:border-dark focus:ring-4 focus:ring-primary-300 hover-animation"
-            />
+            <FormInput type={showPassword ? 'text' : 'password'} label="password" name="password" placeholder="********" />
           </div>
-          <span className="inline-flex justify-end items-center gap-x-1 mb-8 text-sm font-semibold cursor-pointer hover:underline" onClick={() => handlePasswordToggle()}>
-            {icon} Show Password
+          <span 
+            className="inline-flex justify-end items-center gap-x-1 mb-8 text-sm font-semibold cursor-pointer hover:underline" 
+            onClick={() => handleToggle()}
+            role="button"
+            aria-label={showPassword ? 'Hide Password' : 'Show Password'}
+          >
+            {icon}{showPassword ? 'Hide' : 'Show'} Password
           </span>
           <Button type="submit" variant="primary">
             Login
           </Button>
         </form>
         <span>
-          Don't have an account yet?{" "}
+          Don't have an account yet?
           <Link
             to="/register"
             className="font-semibold underline animate-hover hover:text-primary-800"
           >
-            Register now
+            Register
           </Link>
         </span>
       </section>

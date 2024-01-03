@@ -2,7 +2,7 @@ import { BookCard } from "./BookCard";
 
 export const BookList = () => {
     return (
-        <div className="flex flex-wrap items-center justify-between w-full">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 w-full">
             <BookCard 
                 slug="the-book-of-art"
                 coverUrl="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/art-book-cover-design-template-34323b0f0734dccded21e0e3bebf004c_screen.jpg?ts=1637015198"

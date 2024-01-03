@@ -7,7 +7,7 @@ export const Button = ({ href, type, variant, children  }) => {
     if (variant === "primary") {
         style = `${baseStyle} text-white bg-primary-800 hover:bg-primary-900 focus:ring-4 focus:ring-primary-300 border border-transparent`;
     } else if (variant === "bordered") {
-        style = `${baseStyle} text-dark bg-light-50 border border-dark hover:bg-light-100`;
+        style = `${baseStyle} text-dark bg-light-50 border border-dark hover:bg-light-100 focus:ring-4 focus:ring-primary-300`;
     } else {
         style = baseStyle;
     }

@@ -8,10 +8,10 @@ export const usePasswordToggle = () => {
     const handleToggle = () => {
         if (showPassword) {
             setShowPassword(false);
-            setIcon(Hide);
+            setIcon(Show);
         } else {
             setShowPassword(true);
-            setIcon(Show);
+            setIcon(Hide);
         }
     };
 

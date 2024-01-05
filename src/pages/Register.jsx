@@ -1,17 +1,12 @@
-import { Button, FormInput, Alert } from "../components/Common/index";
-import { Link } from "react-router-dom";
+import { Button, FormInput } from "../components/Common/index";
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "../assets/images/logo.svg";
 import { FaArrowLeftLong as Back } from "react-icons/fa6";
 import { useFormik } from "formik";
 import { registerValidationSchema } from "../validations/registerValidationSchema";
-import { useMutation } from "@tanstack/react-query";
-import { axiosInstance } from "../lib/Axios";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useAuthRegister } from "../services/auth/useAuthRegister";
 
 export const Register = () => {
-  const [alert, setAlert] = useState(null);
-
   const navigate = useNavigate();
 
   const formik = useFormik({
@@ -27,18 +22,11 @@ export const Register = () => {
     },
   });
 
-  const { mutate: authRegister } = useMutation({
-    mutationFn: async (body) => {
-      const response = await axiosInstance.post("auth/register", body);
-
-      return response;
-    },
-    onSuccess: (data) => {
-      setAlert(data.data.message);
+  const { mutate: authRegister } = useAuthRegister({
+    onSuccess: () => {
       navigate("/login");
     },
-    onError: (error) => {
-      setAlert(error.response.data);
+    onError: () => {
       formik.setFieldValue("username", "");
       formik.setFieldValue("email", "");
       formik.setFieldValue("password", "");
@@ -60,9 +48,6 @@ export const Register = () => {
           <Back />
           Back to homepage
         </Link>
-        {alert ? (
-          <Alert type="danger" message={alert} />
-        ) : null}
         <Link
           to="/"
           className="inline-flex h-16 mb-4 items-center font-black text-xl lg:text-2xl"
